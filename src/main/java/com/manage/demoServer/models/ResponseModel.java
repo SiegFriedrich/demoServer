@@ -6,15 +6,15 @@ import lombok.AllArgsConstructor;
 import lombok.Getter;
 import lombok.Setter;
 
+@AllArgsConstructor
 @Setter
 @Getter
-@AllArgsConstructor
-public class ResponseModel {
 
- 
-    public ResponseModel(String string, String message2, UUID idToken2) {
+public class ResponseModel {
+    public ResponseModel(String status, String message, UUID idToken) {
     }
-    private Number status;
+
+    private Integer status;
     private String message;
     private UUID idToken;
 }
