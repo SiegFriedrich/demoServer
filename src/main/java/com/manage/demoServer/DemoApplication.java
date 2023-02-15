@@ -1,6 +1,8 @@
 package com.manage.demoServer;
 
 import java.util.UUID;
+
+import org.mybatis.spring.annotation.MapperScan;
 import org.springframework.boot.SpringApplication;
 import org.springframework.boot.autoconfigure.SpringBootApplication;
 import org.springframework.context.annotation.ComponentScan;
@@ -14,7 +16,8 @@ import com.manage.demoServer.models.LoginReqBodyModel;
 import com.manage.demoServer.models.ResponseModel;
 
 @CrossOrigin(origins = "http://localhost:8080", maxAge = 5000)
-@ComponentScan(basePackages = { "com.manage.demoServer.mapper" })
+@ComponentScan(basePackages = { "com.manage.demoServer" })
+@MapperScan("com.manage.demoServer.mapper")
 @SpringBootApplication
 @RestController
 public class DemoApplication {
