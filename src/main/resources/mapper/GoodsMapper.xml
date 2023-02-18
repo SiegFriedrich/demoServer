@@ -4,9 +4,9 @@
         "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
 <mapper namespace="com.manage.demoServer.mapper.GoodsMapper">
     <select id="findById" parameterType="Integer" resultType="GoodsModel">
-        SELECT * FROM goods WHERE id = #{id}
+        SELECT * FROM goods WHERE id = #{id};
     </select>
     <select id="findAll" resultType="GoodsModel">
-        SELECT * FROM goods
+        SELECT * FROM goods order by id;
     </select>
 </mapper>

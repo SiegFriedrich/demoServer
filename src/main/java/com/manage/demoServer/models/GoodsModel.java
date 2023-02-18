@@ -12,4 +12,5 @@ public class GoodsModel {
     private Integer id;
     private String info;
     private String title;
+    private String company;
 }
