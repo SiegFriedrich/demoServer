@@ -26,4 +26,5 @@ public class GoodsController {
                 service.findAll());
         return responseResult;
     }
+
 }

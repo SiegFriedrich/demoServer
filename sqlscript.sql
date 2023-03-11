@@ -36,3 +36,38 @@ INSERT INTO goods (userid, info, title,company) values (1,'e columns and values 
 INSERT INTO goods (userid, info, title,company) values (1,'e columns and values in the column and value lists must be in the same order.','fridge','Siemens');
 INSERT INTO goods (userid, info, title,company) values (1,'e columns and values in the column and value lists must be in the same order.','trouser','Bulgari');
 INSERT INTO goods (userid, info, title,company) values (1,'e columns and values in the column and value lists must be in the same order.','pen','Hermes');
+
+
+-- Table: public.contract
+
+-- DROP TABLE IF EXISTS public.contract;
+
+CREATE TABLE IF NOT EXISTS public.contract
+(
+    id integer NOT NULL GENERATED ALWAYS AS IDENTITY ( INCREMENT 1 START 1 MINVALUE 1 MAXVALUE 2147483647 CACHE 1 ),
+    policyId integer NOT NULL,
+    policyHolderName character varying(80) COLLATE pg_catalog."default",
+    divisionName character varying(20) COLLATE pg_catalog."default" NOT NULL,
+    poicyNo character varying(80) COLLATE pg_catalog."default"
+)
+
+INSERT INTO CONTRACT (policyId,policyHolderName,divisionName,policyNo) values (100001,'株式会社DOCOMO','開発部','POLIJDO83KO83DG62SSS');
+INSERT INTO CONTRACT (policyId,policyHolderName,divisionName,policyNo) values (100002,'三菱商事','開発部','POLIJDO83KO83DG62S01');
+INSERT INTO CONTRACT (policyId,policyHolderName,divisionName,policyNo) values (100003,'本田技研工業','開発部','POLIJDO83KO83DG62S02');
+INSERT INTO CONTRACT (policyId,policyHolderName,divisionName,policyNo) values (100004,'伊藤忠商事','発展部','POLIJDO83KO83DG62S03');
+INSERT INTO CONTRACT (policyId,policyHolderName,divisionName,policyNo) values (100005,'日本電信電話','SDG発展部','POLIJDO83KO83DG62S04');
+INSERT INTO CONTRACT (policyId,policyHolderName,divisionName,policyNo) values (100006,'三井物産','開発部','POLIJDO83KO83DG62S05');
+INSERT INTO CONTRACT (policyId,policyHolderName,divisionName,policyNo) values (100007,'日本郵政','開発部','POLIJDO83KO83DG62S06');
+INSERT INTO CONTRACT (policyId,policyHolderName,divisionName,policyNo) values (100008,'ＥＮＥＯＳホールディングス','グリン開発部','POLIJDO83KO83DG62S07');
+INSERT INTO CONTRACT (policyId,policyHolderName,divisionName,policyNo) values (100009,'日立製作所','開発部','POLIJDO83KO83DG62S08');
+INSERT INTO CONTRACT (policyId,policyHolderName,divisionName,policyNo) values (100010,'ソニーグループ','開発部','POLIJDO83KO83DG62S09');
+INSERT INTO CONTRACT (policyId,policyHolderName,divisionName,policyNo) values (100011,'セブン＆アイ・ホールディングス','開発部','POLIJDO83KO83DG62S10');
+INSERT INTO CONTRACT (policyId,policyHolderName,divisionName,policyNo) values (100012,'イオン','未来進出部','POLIJDO83KO83DG62S11');
+INSERT INTO CONTRACT (policyId,policyHolderName,divisionName,policyNo) values (100013,'丸紅','開発部','POLIJDO83KO83DG62S12');
+INSERT INTO CONTRACT (policyId,policyHolderName,divisionName,policyNo) values (100014,'日産自動車','美術鑑賞部','POLIJDO83KO83DG62S13');
+INSERT INTO CONTRACT (policyId,policyHolderName,divisionName,policyNo) values (100015,'豊田通商','育児部','POLIJDO83KO83DG62S14');
+INSERT INTO CONTRACT (policyId,policyHolderName,divisionName,policyNo) values (100016,'第一生命ホールディングス','開発部','POLIJDO83KO83DG62S15');
+INSERT INTO CONTRACT (policyId,policyHolderName,divisionName,policyNo) values (100017,'パナソニックホールディングス','社員発展維持部','POLIJDO83KO83DG62S16');
+INSERT INTO CONTRACT (policyId,policyHolderName,divisionName,policyNo) values (100018,'日本製鉄','開発部','POLIJDO83KO83DG62S17');
+INSERT INTO CONTRACT (policyId,policyHolderName,divisionName,policyNo) values (100019,'出光興産','開発部','POLIJDO83KO83DG62S18');
+INSERT INTO CONTRACT (policyId,policyHolderName,divisionName,policyNo) values (100020,'かんぽ生命保険','開発部','POLIJDO83KO83DG62S19');

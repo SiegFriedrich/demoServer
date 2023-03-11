@@ -10,5 +10,5 @@ import lombok.Setter;
 public class ResponseResult<T> {
     public Integer status;
     public String message;
-    public T data;
+    public T value;
 }
