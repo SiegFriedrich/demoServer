@@ -1,3 +1,7 @@
+PgAdmin
+1) 表被锁， 是要有主键
+2）主键要通过设置自增 不然insert sql 会报错！id没有值
+
 -- Table: public.goods
 
 -- DROP TABLE IF EXISTS public.goods;
@@ -42,14 +46,14 @@ INSERT INTO goods (userid, info, title,company) values (1,'e columns and values 
 
 -- DROP TABLE IF EXISTS public.contract;
 
-CREATE TABLE IF NOT EXISTS public.contract
+CREATE TABLE IF NOT EXISTS CONTRACT
 (
     id integer NOT NULL GENERATED ALWAYS AS IDENTITY ( INCREMENT 1 START 1 MINVALUE 1 MAXVALUE 2147483647 CACHE 1 ),
     policyId integer NOT NULL,
     policyHolderName character varying(80) COLLATE pg_catalog."default",
-    divisionName character varying(20) COLLATE pg_catalog."default" NOT NULL,
-    poicyNo character varying(80) COLLATE pg_catalog."default"
-)
+    divisionName character varying(80) COLLATE pg_catalog."default",
+    policyNo character varying(80) COLLATE pg_catalog."default"
+);
 
 INSERT INTO CONTRACT (policyId,policyHolderName,divisionName,policyNo) values (100001,'株式会社DOCOMO','開発部','POLIJDO83KO83DG62SSS');
 INSERT INTO CONTRACT (policyId,policyHolderName,divisionName,policyNo) values (100002,'三菱商事','開発部','POLIJDO83KO83DG62S01');
@@ -71,3 +75,50 @@ INSERT INTO CONTRACT (policyId,policyHolderName,divisionName,policyNo) values (1
 INSERT INTO CONTRACT (policyId,policyHolderName,divisionName,policyNo) values (100018,'日本製鉄','開発部','POLIJDO83KO83DG62S17');
 INSERT INTO CONTRACT (policyId,policyHolderName,divisionName,policyNo) values (100019,'出光興産','開発部','POLIJDO83KO83DG62S18');
 INSERT INTO CONTRACT (policyId,policyHolderName,divisionName,policyNo) values (100020,'かんぽ生命保険','開発部','POLIJDO83KO83DG62S19');
+
+
+--- user
+CREATE TABLE IF NOT EXISTS user_master
+(
+    id integer NOT NULL GENERATED ALWAYS AS IDENTITY ( INCREMENT 1 START 1 MINVALUE 1 MAXVALUE 2147483647 CACHE 1 ),
+    nickname integer NOT NULL,
+    username character varying(80) COLLATE pg_catalog."default"
+);
+
+INSERT INTO user_master(nickname,username) values ('Bob','井上宏昌');
+INSERT INTO user_master(nickname,username) values ('Jerry','三浦広野');
+INSERT INTO user_master(nickname,username) values ('Jack','Jackson W Heischent');
+INSERT INTO user_master(nickname,username) values ('Evelyn','李 惠');
+
+
+
+--- role
+CREATE TABLE IF NOT EXISTS public.role
+(
+    id integer NOT NULL GENERATED ALWAYS AS IDENTITY ( INCREMENT 1 START 1 MINVALUE 1 MAXVALUE 2147483647 CACHE 1 ),
+    rolename character varying(80)
+)
+INSERT INTO ROLE (rolename) values ('admin');
+INSERT INTO ROLE (rolename) values ('semiadmin');
+INSERT INTO ROLE (rolename) values ('manager');
+INSERT INTO ROLE (rolename) values ('sales');
+INSERT INTO ROLE (rolename) values ('customer');
+
+--- user_role_relation
+CREATE TABLE IF NOT EXISTS public.user_role_relation
+(
+    id integer NOT NULL GENERATED ALWAYS AS IDENTITY ( INCREMENT 1 START 1 MINVALUE 1 MAXVALUE 2147483647 CACHE 1 ),
+    user_id integer NOT NULL,
+    role_id integer NOT NULL
+);
+
+INSERT INTO public.user_role_relation (user_id,role_id) values (1,1);
+INSERT INTO public.user_role_relation (user_id,role_id) values (1,2);
+INSERT INTO public.user_role_relation (user_id,role_id) values (2,4);
+INSERT INTO public.user_role_relation (user_id,role_id) values (3,2);
+INSERT INTO public.user_role_relation (user_id,role_id) values (3,3);
+INSERT INTO public.user_role_relation (user_id,role_id) values (4,5);
+
+
+
+

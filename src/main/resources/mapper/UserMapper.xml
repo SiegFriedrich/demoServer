@@ -1,0 +1,29 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper
+        PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+        "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.manage.demoServer.mapper.UserMapper">
+    <resultMap id="userModel" type="com.manage.demoServer.models.UserModel">
+        <id column="id" property="id" />
+        <result column="nickname" property="nickname" />
+        <result column="username" property="username" />
+        <collection property="roles" ofType="com.manage.demoServer.models.RoleModel">
+            <id column="role_id" property="id"/>
+            <result column="role_name" property="rolename"/>
+        </collection>
+    </resultMap>
+
+    <select id="findById" resultMap="userModel">
+        SELECT um.id id, um.nickname nickname, um.username username, rl.id role_id, rl.rolename role_name 
+        FROM user_master um
+        INNER JOIN user_role_relation urr ON urr.user_id = um.id
+        INNER JOIN role rl ON rl.id = urr.role_id
+        WHERE um.id = #{id};
+    </select>
+    <select id="findAll" resultMap="userModel">
+        SELECT um.id id, um.nickname nickname, um.username username, rl.id role_id, rl.rolename role_name 
+        FROM user_master um
+        INNER JOIN user_role_relation urr ON urr.user_id = um.id
+        INNER JOIN role rl ON rl.id = urr.role_id;
+    </select>
+</mapper>
